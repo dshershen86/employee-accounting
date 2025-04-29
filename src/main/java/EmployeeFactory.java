@@ -14,7 +14,7 @@ public class EmployeeFactory {
         }
     };
 
-    static List<Employee> generateEmployees(int size) {
+    List<Employee> generateEmployees(int size) {
 
         List<Employee> employees = new ArrayList<>();
         Random random = new Random();

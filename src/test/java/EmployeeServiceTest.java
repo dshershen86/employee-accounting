@@ -12,7 +12,7 @@ public class EmployeeServiceTest {
 
     @BeforeEach
     void setUp() {
-        employeesService = new EmployeeService(EmployeeFactory.generateEmployees(5));
+        employeesService = new EmployeeService(new EmployeeFactory().generateEmployees(5));
     }
 
     @Test
@@ -29,7 +29,7 @@ public class EmployeeServiceTest {
     @DisplayName("Testing calculateSalaryAndBonusTest result is 4300")
     @Test
     void calculateSalaryAndBonusResultIs4300Test() {
-        employeesService = new EmployeeService(EmployeeFactory.generateEmployees(5));
+
         employeesService.getEmployees().forEach(x -> x.setSalary(200));
         employeesService.getEmployees().forEach(x -> x.setFixedBugs(10));
         employeesService.getEmployees().forEach(x -> x.setDefaultBugRate(50));
