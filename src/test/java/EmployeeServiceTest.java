@@ -30,9 +30,9 @@ public class EmployeeServiceTest {
     @Test
     void calculateSalaryAndBonusResultIs4300Test() {
         employeesService = new EmployeeService(EmployeeFactory.generateEmployees(5));
-        employeesService.getEmployees().stream().forEach(x -> x.setSalary(200));
-        employeesService.getEmployees().stream().forEach(x -> x.setFixedBugs(10));
-        employeesService.getEmployees().stream().forEach(x -> x.setDefaultBugRate(50));
+        employeesService.getEmployees().forEach(x -> x.setSalary(200));
+        employeesService.getEmployees().forEach(x -> x.setFixedBugs(10));
+        employeesService.getEmployees().forEach(x -> x.setDefaultBugRate(50));
         assertEquals((double) (200 * 5) + (10 * 5) * 50, employeesService.calculateSalaryAndBonus());
 
     }
@@ -91,10 +91,8 @@ public class EmployeeServiceTest {
 
     @Test
     public void editTest() {
-
-        Employee desiredEmployee = null;
         try {
-            desiredEmployee = employeesService.getById(12);
+            Employee desiredEmployee = employeesService.getById(12);
 
             Employee testedEmployee = new Employee();
             testedEmployee.setName("Some name");
